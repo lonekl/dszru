@@ -1,0 +1,17 @@
+usage:
+	dszru [OPTIONS] [FILES...]
+	By default program will prompt for password on stdin (Password won't be able to contain any newline characters.
+	When encrypting it will create new encrypted files with same file path adding `.dszru` at the end or removing `.udszru` if it is at the end.
+	When decrypting it will create new decrypted files with same file path removing `.dszru` if it is at the end or adding `.udszru` at the end.
+	If you are writing script or just writing data to file which you want to encrypt, save it temporarly to ramfs or encrypted partition, then encrypt it and move or copy to place where you want it.
+options:
+	--help                                    Display this help message.
+	--version                                 Display version information.
+	--decrypt, -d                             Decrypt files instead of encrypting.
+	--verbose, -v                             Display what files are currently crypted.
+	--display-progress, --very-verbose, -V    Display progress of all file crypting. try to not use when unnecesary, this shows step count by which it can be easier to guess password.
+	--full-stdin-password, -f                 Read stdin to the end for password, to finish typing password just press Ctrl+D (^D). You can use it to enter some non-unicode password or include newlines. Can not be used with -p (--pas...) as it is implied by that.
+	--password-file, -p [FILE_PATH]           Use some file contents as password. Can be used to easily use binary password. It's recomended to store this file on temporary or encrypted partition. Also it doesn't ignore ending newline character.
+	--progress-length, -P [CHARACTER_LENGTH]  Does make sense only when -V (--display-prog...) is used. By that you can set custom progress bar length.
+additional information:
+	This encryption algorithm isn't very strong so it shouldn't be used to hide personal data.

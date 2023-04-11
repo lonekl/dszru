@@ -1,0 +1,2 @@
+dszru encrypting and decrypting algorithm.
+v0.1.0 writen by Lonekl.
